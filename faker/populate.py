@@ -1,18 +1,12 @@
 from faker import Faker
 import psycopg
 import random
+from src.db.connection import conn, encerra_conn
 
 fake = Faker('pt-BR')
 
-conn = psycopg.connect(
-    host="localhost",
-    dbname="chatbot_db",
-    user="admin", 
-    password="admin",
-    port=5433
-)
-
-cur = conn.cursor()
+connection = conn()
+cur = connection.cursor()
 
 for i in range(100):
     
@@ -73,8 +67,8 @@ for i in range(1000):
         (cliente_id, ip, sucesso, data_login)
     )
     
-conn.commit()
+connection.commit()
 cur.close()
-conn.close()
+encerra_conn(connection)
 
 print("Banco populado")
