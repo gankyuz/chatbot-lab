@@ -7,14 +7,17 @@ load_dotenv()
 
 def conn():
     try:
-        pwd = os.getenv("db_password")
+        pwd = os.getenv("POSTGRES_PASSWORD")
+        usr = os.getenv("POSTGRES_USER")
+        prt = os.getenv("POSTGRES_PORT")
+        db = os.getenv("POSTGRES_DB")
         
         conecta = pg.connect(
-            user="admin",
+            user=usr,
             password=pwd,
             host="localhost",
-            port=5433,
-            database="chatbot_db"
+            port=prt,
+            database=db
         )
         
         print("Conectado com sucesso!")
