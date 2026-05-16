@@ -1,3 +1,3 @@
 select *
 from login_logs
-where sucesso = FALSE
+where sucesso is FALSE
