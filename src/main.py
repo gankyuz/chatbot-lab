@@ -3,7 +3,7 @@ from src.db.execute import execute_sql
 
 def main():
     
-    print("=== Chat SQL com LLM ===")
+    print("=== Chat ===")
     
     while True:
     

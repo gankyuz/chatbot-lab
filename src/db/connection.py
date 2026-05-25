@@ -20,7 +20,6 @@ def conn():
             database=db
         )
         
-        print("Conectado com sucesso!")
         
         return conecta
 
