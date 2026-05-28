@@ -50,4 +50,15 @@ ON clientes.id = pedidos.cliente_id
 GROUP BY clientes.cidade
 ORDER BY total_gasto DESC
 LIMIT 1;
+
+Pergunta: Qual o nome do cliente que mais comprou?
+
+SQL:
+select clientes.nome, sum(pedidos.valor) as total_gasto
+from clientes
+join pedidos
+on clientes.id = pedidos.cliente_id
+group by clientes.nome
+order by total_gasto desc
+limit 1;
 """
